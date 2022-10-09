@@ -21,12 +21,10 @@ def menu():
     return opcao, aux
 
 
-def remove_candidato():
-    pass
-
-
-def girar():
-    pass
+def girar(giros=1):
+    for i in range(giros):
+        removido = candidatos.pop()
+        candidatos.append(removido)
 
 
 candidatos = ListaNaoOrdenada()
@@ -39,7 +37,12 @@ while opcao != 'EXIT':
     if opcao == 'ADD':
         candidatos.append(aux)
     elif opcao == 'FIRST':
-        pass
-
-
-print(candidatos)
+        print(candidatos.head.getData())
+    elif opcao == 'DEL':
+        candidatos.pop()
+    elif opcao == 'SHOW':
+        print(candidatos)
+    elif opcao == 'SPIN':
+        if aux != None:
+            girar(int(aux))
+        else: girar()
