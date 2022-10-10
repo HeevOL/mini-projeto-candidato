@@ -1,7 +1,5 @@
 from Noh import *
 
-class ListaVazia(Exception): pass
-
 
 class ListaNaoOrdenada:
     def __init__(self):
@@ -11,7 +9,6 @@ class ListaNaoOrdenada:
         self.ocupado = 0
 
     def __str__(self): return f'{self.head}'
-
 
     def is_empty(self): return self.head == None
 
@@ -38,7 +35,6 @@ class ListaNaoOrdenada:
 
     def remove_primeiro(self):
         self.head = self.head.getNext()
-
 
     def preenchido(self):
         return self.ocupado
@@ -72,7 +68,7 @@ class ListaNaoOrdenada:
 
     def remove(self, item):
         try:
-            while not encontrou: #percorre a lista
+            while not encontrou:  # percorre a lista
                 if atual.getData() == item:
                     encontrou = True
                 else:
@@ -90,23 +86,6 @@ class ListaNaoOrdenada:
 
 if __name__ == "__main__":
     lista = ListaNaoOrdenada()
-
-    lista.append(1)
-    print(lista)
-    lista.append(2)
-    print(lista)
-    lista.append(3)  
-    print(lista)
-    lista.append(4)
-    lista.append(5)
-    lista.insert(6, 6)
-    print(lista)
-    lista.append(7)
-    print(lista)    
-    lista.pop()
-    print(lista)
-    lista.pop()
-    print(lista)
     print(lista.search("Adrian"))
     lista.remove("Adrian")
     print(lista.size())
