@@ -1,9 +1,8 @@
 from FilaEncadeada import *
 
 
-def menu(cont=0):
-    if cont == 0:
-        print('''\n---------------------------CANDIDATOS-----------------------------\n\n'Adicionar, <Nome_Candidato>' para adicionar candidato.\n'Primeiro' para ver informações sobre o primeiro candidato da fila.\n'Remover' para remover o primeiro candidato da fila.\n'Mostrar' para mostrar as informações de todos os candidatos.\n'Girar, <Qntd_vezes>' para girar a fila, valor padrão = 1.\n'Exit' para finalizar o programa.\n''')
+def menu():
+    print('''\n---------------------------CANDIDATOS-----------------------------\n\n'Adicionar, <Nome_Candidato>' para adicionar candidato.\n'Primeiro' para ver informações sobre o primeiro candidato da fila.\n'Remover' para remover o primeiro candidato da fila.\n'Mostrar' para mostrar as informações de todos os candidatos.\n'Girar, <Qntd_vezes>' para girar a fila, valor padrão = 1.\n'Exit' para finalizar o programa.\n''')
 
     op = input("Operação: ").split()
     opcao = op[0].lower()
@@ -25,9 +24,7 @@ candidatos = FilaEncadeada()
 while True:
 
     try:
-        cont = 0
-        opcao, aux = menu(cont)
-        cont += 1
+        opcao, aux = menu()
 
         if opcao == 'exit' and aux != "case1":
             print("\n   Finalizando o programa...\n")
