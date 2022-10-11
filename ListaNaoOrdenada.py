@@ -33,8 +33,15 @@ class ListaNaoOrdenada:
             self.head = temp
         self.ocupado += 1
 
+    def size(self):
+        return self.tamanho
+
     def remove_primeiro(self):
-        self.head = self.head.getNext()
+        if self.head.getNext() != None:
+            self.head = self.head.getNext()
+        elif self.head.getNext() == None:
+            self.head = None
+        self.ocupado -= 1
 
     def preenchido(self):
         return self.ocupado
@@ -68,6 +75,9 @@ class ListaNaoOrdenada:
 
     def remove(self, item):
         try:
+            atual = self.head
+            anterior = None
+            encontrou = False
             while not encontrou:  # percorre a lista
                 if atual.getData() == item:
                     encontrou = True
@@ -75,36 +85,31 @@ class ListaNaoOrdenada:
                     anterior = atual
                     atual = atual.getNext()
 
-                if anterior == None:
-                    self.head = atual.getNext()
-                else:
-                    anterior.setNext(atual.getNext())
-                self.tamanho -= 1
+            if anterior == None:
+                self.head = atual.getNext()
+            else:
+                anterior.setNext(atual.getNext())
+            self.tamanho -= 1
         except:
             print("Item não encontrado")
 
 
 if __name__ == "__main__":
     lista = ListaNaoOrdenada()
-    print(lista.search("Adrian"))
-    lista.remove("Adrian")
-    print(lista.size())
-    lista.add("Adrian")
-    lista.add("Jose")
-    lista.add("Santos")
-    lista.add("Torres")
-    print(lista.size())
-    lista.remove("Adrian")
-    lista.remove("Torres")
-    lista.remove("Adrian")
-    print(lista.size())
-    print(lista)
-    print(lista.acessar(4))
     lista.append("Jose")
     lista.append("Adrian")
     lista.append("Torres")
     lista.append("Dos")
     lista.append("Santos")
 
-    print(lista)
-    print(lista.acessar(5))
+    lista.remove_primeiro()
+    lista.remove_primeiro()
+    lista.remove_primeiro()
+    lista.remove_primeiro()
+    lista.remove_primeiro()
+
+    lista.append("Jose")
+    lista.append("Adrian")
+
+    lista.remove_primeiro()
+    lista.remove_primeiro()
