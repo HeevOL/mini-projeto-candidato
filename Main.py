@@ -56,10 +56,19 @@ while True:
         elif opcao == 'girar' and aux != "case2":
 
             if aux != None:
-                for x in range(int(aux) % candidatos.size()):
-                    candidatos.spin()
+                if int(aux) % candidatos.size() == 0:
+                    print("Não houve mudança na ordem dos candidatos.")
+                else:
+                    for x in range(int(aux) % candidatos.size()):
+                        candidatos.spin()
+                    print("Mundança na ordem dos candidatos!")
+            
+            elif candidatos.size() == 1:
+                    print("Não houve mudança na ordem dos candidatos.")
+                    continue
             else:
                 candidatos.spin()
+                print("Mundança na ordem dos candidatos!")
 
         elif aux == "case2":
             print(

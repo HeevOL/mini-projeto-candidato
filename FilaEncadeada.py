@@ -40,7 +40,7 @@ class FilaEncadeada:
         self._tamanho -= 1
         return result
     
-    def spin(self, vezes=1):
+    def spin(self):
         self.enqueue(self.dequeue())
 
     def show(self):
